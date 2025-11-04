@@ -511,7 +511,8 @@ body {
   .ai-footer {
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    width:96% !important;
+    padding: 0px !important;
+    width:99% !important;
     margin-left: 10% !important;
   }
     .footer{
