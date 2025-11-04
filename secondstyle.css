@@ -731,9 +731,9 @@ body {
   .header .dropdown-wrapper {          /* original header login */
     display: none !important;
   }
-  .upgrade-btn{
+  /* .upgrade-btn{
     display: none !important;
-  }
+  } */
 }
 
 
