@@ -100,6 +100,7 @@ body {
     background: #202123;
     /* border-right: 1px solid #343434; */
     transition: transform 0.3s ease;
+
     overflow-y: auto;
 }
 
@@ -707,7 +708,7 @@ display: none !important;
 
 /* Default Sidebar (hidden by default) */
 .sidebar {
-  position: fixed;
+  position: relative;
   top: var(--header-height, 60px);
   left: 0;
   width: 260px;

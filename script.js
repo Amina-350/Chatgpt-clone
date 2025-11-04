@@ -13,7 +13,8 @@ document.addEventListener('click', (e) => {
   const clickInsideSidebar = sidebar.contains(e.target);
   const clickOnMenu = menuToggle.contains(e.target);
 
-  if (!clickInsideSidebar && !clickOnMenu) {
-    sidebar.classList.add('closed');
-  }
+//   if (!clickInsideSidebar && !clickOnMenu) {
+//     sidebar.classList.add('closed');
+//   }
 });
+
