@@ -35,3 +35,9 @@ document.addEventListener("click", (e) => {
     document.body.classList.remove("sidebar-active");
   }
 });
+const avatar = document.querySelector('.user-avatar');
+const dropdown = document.querySelector('.login-dropdown');
+
+avatar.addEventListener('click', () => {
+  dropdown.classList.toggle('show');
+});

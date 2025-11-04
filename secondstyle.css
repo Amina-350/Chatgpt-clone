@@ -229,11 +229,7 @@ html, body {
     gap: 15px;
 }
 
-.header-right:hover .login-dropdown {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
+
 .user-avatar {
     width: 32px;
     height: 32px;
@@ -253,30 +249,8 @@ html, body {
     font-weight: 500;
     cursor: pointer;
 }
-/* Dropdown – hidden by default */
-.login-dropdown {
-  position: absolute;
-  top: 100%;                   /* directly under the button */
-  right: 0;                    /* align to the right edge of the button */
-  min-width: 160px;
-  background: #333;
-  padding: 10px 15px;
-  /* border: 1px solid #e0e0e0; */
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0,0,0,.1);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-8px);
-  transition: opacity .2s ease, transform .2s ease, visibility .2s;
-  z-index: 1000;
-}
 
-/* Show on hover of the **parent container** (button + dropdown) */
-.header-right:hover .login-dropdown {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
+
 /* Dropdown items */
 .dropdown-item {
   display: block;
@@ -685,4 +659,149 @@ body {
   body.sidebar-active {
     overflow: hidden;
   }
+}
+
+
+
+/* Button positioning */
+.upgrade-btn {
+    position: relative; /* Anchor for absolute dropdown */
+    background: #1F1F1F;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.upgrade-btn:hover {
+    background: #333;
+}
+
+/* Dropdown – hidden by default */
+.login-dropdown {
+    position: absolute;
+    top: calc(100% + 8px); /* Small gap below button */
+    right: 0;
+ 
+    border: 1px solid #000000;
+    min-width: 180px;
+    background: rgba(255, 255, 255, 0.1);;
+    padding: 10px 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Show on button hover OR dropdown hover */
+.upgrade-btn:hover ~ .login-dropdown,
+.login-dropdown:hover {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Dropdown items */
+.dropdown-item {
+    display: block;
+    padding: 10px 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background: rgba(255, 255, 255, 0.21);
+    border-radius: 4px;
+}
+
+/* -------------------------------------------------
+   1. HIDE LOGIN BUTTON IN HEADER BELOW 500px
+------------------------------------------------- */
+@media (max-width: 500px) {
+  .header .dropdown-wrapper {          /* original header login */
+    display: none !important;
+  }
+  .upgrade-btn{
+    display: none !important;
+  }
+}
+
+
+/* -------------------------------------------------
+   2. STYLE LOGIN BUTTON INSIDE SIDEBAR
+------------------------------------------------- */
+.sidebar-login-wrapper {
+  position: absolute;
+  top: 44vh !important;
+  bottom: 20px !important;
+  left:80vw;
+  z-index: 10;
+}
+
+/* Keep same button + dropdown styling */
+.sidebar-login-wrapper .upgrade-btn1 {
+  background: #1F1F1F;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.sidebar-login-wrapper .upgrade-btn1:hover {
+  background: #333;
+}
+
+/* Dropdown – same as header, but relative to button */
+.sidebar-login-wrapper {
+  position: relative;
+}
+.sidebar-login-wrapper .login-dropdown {
+  position: absolute;
+ 
+  top: -19vh !important;
+  bottom:60px !important;
+    left:-24vw;
+  min-width: 180px;
+
+  border: 1px solid #000;
+  border-radius: 8px;
+  padding: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity .2s, transform .2s, visibility .2s;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Show dropdown on hover */
+.sidebar-login-wrapper:hover .login-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.sidebar-login-wrapper .dropdown-item {
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background .2s;
+}
+.sidebar-login-wrapper .dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.21);
+  border-radius: 4px;
 }
