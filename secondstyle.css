@@ -90,7 +90,7 @@ html, body {
   position: absolute;
   top: 45px;
   right: 0;
-  background: #fff;
+  background:  #1f1f1f;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
@@ -688,7 +688,7 @@ body {
  
     border: 1px solid #000000;
     min-width: 180px;
-    background: #1F1F1F;
+    background: #1f1f1f;
     padding: 10px 10px;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
