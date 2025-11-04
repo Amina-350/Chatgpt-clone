@@ -11,7 +11,12 @@ body {
     color: #ececf1;
    
 }
-
+.-rotate-45, .-rotate-90 {
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.-rotate-45 {
+    --tw-rotate: -45deg !important;
+}
 .header {
     position: fixed;
     top: 0;
@@ -42,15 +47,20 @@ body {
     color: #ececf1;
     font-size: 24px;
     cursor: pointer;
-    display: none; /* Hidden on desktop */
+    display: flex; /* Hidden on desktop */
 }
 
 .logo {
     font-size: 24px;
     font-weight: 600;
+    display: flex;
+
     color: white;
 }
 
+#menuToggle{
+  color: grey;
+}
 .header-right {
     display: flex;
     align-items: center;
@@ -281,7 +291,7 @@ flex-direction: column;
 }
 .width-margin{
       width:47vw;
-         margin-left:10vw;
+         margin-left:9vw;
 }
 
 .audio-bar {
@@ -483,9 +493,9 @@ cursor:pointer !important;
         transform: translateX(0);
     }
 
-    .menu-toggle {
+    /* .menu-toggle {
         display: block;
-    }
+    } */
 
     .main-container {
         flex-direction: column;
@@ -583,7 +593,7 @@ display: none !important;
   /* margin: 0 auto; */
   /* padding: 60px 20px; */
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 40px;
   font-size: 14px;
 }
@@ -692,4 +702,33 @@ display: none !important;
 
 .hello-btn:hover {
   background-color: #005ecb;
+}
+
+
+/* Default Sidebar (hidden by default) */
+.sidebar {
+  position: fixed;
+  top: var(--header-height, 60px);
+  left: 0;
+  width: 260px;
+  height: calc(100vh - var(--header-height, 60px));
+  background-color: rgba(0, 0, 0, 0.97);
+  transform: translateX(0); /* 👈 Start OPEN */
+  transition: transform 0.3s ease-in-out;
+  z-index: 9999;
+}
+
+/* Sidebar hidden */
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100vw;
+  }
+
+  .block-on-small {
+    display: none !important;
+  }
 }
